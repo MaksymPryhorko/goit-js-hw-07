@@ -16,9 +16,14 @@ const images = [
 const galleryRef = document.querySelector('#gallery');
 const newElement = document.createElement('li')
 
-images.forEach(el => {
-  galleryRef.insertAdjacentHTML('afterbegin', `<li class="photo"><img src="${el.url}", alt="${el.alt}"></li>`)
+
+const arrayToString = images.map(el => {
+  const allString = `<li class="photo"><img src="${el.url}", alt="${el.alt}"></li>`;
+  return allString;
 });
+
+galleryRef.insertAdjacentHTML('afterbegin', arrayToString);
+
 
 galleryRef.style.display = 'flex';
 galleryRef.style.justifyContent = 'space-between';
